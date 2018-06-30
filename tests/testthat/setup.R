@@ -21,9 +21,7 @@ battery <- tibble::lst(
   fake_numbers,
   na_numbers,
   fake_integers,
-  na_integers,
-  zero_length
+  na_integers
 )
 
 battery_lengths <- purrr::map_int(battery, length)
-

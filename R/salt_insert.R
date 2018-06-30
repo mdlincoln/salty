@@ -11,6 +11,7 @@
 #'
 #' @export
 salt_insert <- function(x, p = 0.2, insertions) {
+  stopifnot(length(x) > 0)
   xm <- as.character(x)
 
   # If a character vector is provided for insertions, then turn it into a shaker function
