@@ -25,13 +25,20 @@ fill_shakers <- function(v) {
   stopifnot(is.character(v))
   stopifnot(length(v) > 0)
 
-  function(p = 0.5, l = NULL) {
+  f <- function(p = 0.5, l = NULL) {
     if (is.null(l)) {
       vi <- p_indices(v, p)
       return(v[vi])
     }
     sample(v, size = l, replace = TRUE)
   }
+
+  structure(f, source = v)
+}
+
+#' Access the original source vector for a given shaker function
+inspect_shaker <- function(f) {
+  attr(f, which = "source", exact = TRUE)
 }
 
 #' Get a set of values to use in `salt_` functions
@@ -47,5 +54,9 @@ fill_shakers <- function(v) {
 #' shaker$puncutation(l = 5)
 shaker <- lapply(list(
   punctuation = dict_punctuation,
-  ocr_erorrs = dict_ocr_errors
+  ocr_erorrs = dict_ocr_errors,
+  lowercase_letters = letters,
+  uppercase_letters = LETTERS,
+  mixed_letters = c(letters, LETTERS),
+  digits = as.character(0:9)
 ), fill_shakers)
