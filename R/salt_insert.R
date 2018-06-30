@@ -13,6 +13,10 @@
 salt_insert <- function(x, p = 0.2, insertions) {
   xm <- as.character(x)
 
+  # If a character vector is provided for insertions, then turn it into a shaker function
+  if (is.character(insertions))
+    insertions <- fill_shakers(insertions)
+
   # Find any empty or NA values.
   m_nulls <- which(is.na(xm) | !nzchar(xm))
   # Skip m_nulls when picking which values of x to modify
@@ -32,12 +36,10 @@ salt_insert <- function(x, p = 0.2, insertions) {
   x
 }
 
-salt_numeric_commas <- function(x, p = 0.1) {
-  stopifnot(is.numeric(x))
+salt_insert_puncutation <- function(x, p = 0.2) {
+  salt_insert(x, p, insertions = shaker$punctuation)
+}
 
-  xc <- as.character(x)
-  xi <- p_indices(xc, p)
-
-  xc[xi] <- stringr::str_replace(xc[xi], "\\.", ",")
-  xc
+salt_insert_letters <- function(x, p = 0.2) {
+  salt_insert(x, p, insertions = letters)
 }

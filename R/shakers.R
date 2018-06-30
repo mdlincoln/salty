@@ -21,7 +21,10 @@ dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
 # Factory that takes either a kv or a dict vector and produces a function that
 # randomly samples a percentage of it (the default), or samples a specified
 # number of values from it.
-shaker_factory <- function(v) {
+fill_shakers <- function(v) {
+  stopifnot(is.character(v))
+  stopifnot(length(v) > 0)
+
   function(p = 0.5, l = NULL) {
     if (is.null(l)) {
       vi <- p_indices(v, p)
@@ -45,4 +48,4 @@ shaker_factory <- function(v) {
 shaker <- lapply(list(
   punctuation = dict_punctuation,
   ocr_erorrs = dict_ocr_errors
-), shaker_factory)
+), fill_shakers)

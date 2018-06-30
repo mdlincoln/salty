@@ -1,4 +1,4 @@
-context("salt-insert")
+context("salt_insert")
 
 test_that("insert punctuation", {
   punctuation_res <- purrr::map(battery, function(x) {
