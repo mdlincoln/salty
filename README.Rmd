@@ -1,0 +1,40 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# salty
+
+When teaching students how toc elan data, it helps to have data that isn't _too_ clean already.
+**salty** offers functions for "salting" clean data with problems often found in datasets in the wild, such as:
+
+- pseudo-OCR errors
+- inconsistent capitalization and spelling
+- invalid dates
+- unpredictable punctuation in numeric fields
+- missing values or empty strings
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+## basic example code
+```
+
+## Related work
+
+https://github.com/paulhendricks/anonymizer
+
+https://github.com/ropensci/charlatan

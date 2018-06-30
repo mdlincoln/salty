@@ -1,0 +1,24 @@
+Type: Package
+Package: salty
+Title: Turn Clean Data Into Messy Data
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Matthew Lincoln", email = "matthew.d.lincoln@gmail.com",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0002-4387-3384")))
+Description: It is easiest to teach data cleaning when you have some slightly 
+    messy data. Take real or simulated data and salt it with errors commonly 
+    found in the wild, such as pseudo-OCR errors, Unicode problems, numeric 
+    fields with nonsensical punctuation, bad dates, etc.
+License: MIT + file LICENSE
+Imports: 
+    assertthat,
+    purrr,
+    stringr
+Suggests: 
+    charlatan,
+    testthat
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
