@@ -52,3 +52,12 @@ shaker <- lapply(list(
   mixed_letters = c(letters, LETTERS),
   digits = as.character(0:9)
 ), fill_shakers)
+), fill_shakers)
+
+#' Get the names of available shakers
+#'
+#' @describeIn shaker
+#' @export
+available_shakers <- function() {
+  names(salty::shaker)
+}

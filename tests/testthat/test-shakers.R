@@ -8,3 +8,7 @@ test_that("fill_shakers rejects poor input", {
 test_that("fill_shakers returns a function", {
   expect_is(fill_shakers(letters), "function")
 })
+
+test_that("avilable shakers returns shaker names", {
+  expect_equivalent(available_shakers(), names(shaker))
+})
