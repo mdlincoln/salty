@@ -1,7 +1,7 @@
 insert_test <- function(selected_shaker, shaker_name) {
   context(str_glue("Salt_insert: {shaker_name}"))
 
-  test_that("insert punctuation", {
+  test_that(str_glue("insert {shaker_name}"), {
     punctuation_res <- map(battery, function(x) {
       salt_insert(x, p = 0.5, insertions = selected_shaker)
     })
