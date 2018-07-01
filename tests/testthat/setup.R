@@ -1,15 +1,19 @@
 # Use charlatan to set up some character and numeric values to salt
+library(purrr)
+library(charlatan)
+library(stringr)
+library(tibble)
 
 set.seed(1)
 
-fake_names <- charlatan::ch_name(25)
+fake_names <- ch_name(25)
 null_names <- c(fake_names, "")
 na_names <- c(fake_names, NA_character_)
 
-fake_numbers <- charlatan::ch_currency(25)
+fake_numbers <- ch_currency(25)
 na_numbers <- c(fake_numbers, NA_real_)
 
-fake_integers <- charlatan::ch_integer(25)
+fake_integers <- ch_integer(25)
 na_integers <- c(fake_integers, NA_real_)
 
 zero_length <- character(0)
