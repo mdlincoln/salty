@@ -1,16 +1,8 @@
 # Constants used to fill up a shaker ----
 
-# kv constants are replacement dictionaries used by salt_replace, and must be in the form of a named character vector
-dict_ocr_errors <- c(
-  "13" = "B",
-  "B" = "13",
-  "a" = "o",
-  "O" = "0",
-  "l" = "1",
-  "l" = "I",
-  "I" = "1",
-  "$" = "S"
-)
+# replacement constants are replacement dictionaries used by salt_replace, and must be in the form of a named character vector
+
+# replacement_ocr_errors is saved as a named vector object in data/dict_ocr_errors.rda
 
 # dicts are unnamed character vectors
 dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
