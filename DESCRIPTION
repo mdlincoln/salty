@@ -11,14 +11,16 @@ Description: It is easiest to teach data cleaning when you have some slightly
     found in the wild, such as pseudo-OCR errors, Unicode problems, numeric 
     fields with nonsensical punctuation, bad dates, etc.
 License: MIT + file LICENSE
-Imports: 
+Imports:
     assertthat,
     purrr,
     stringr
-Suggests: 
+Suggests:
     charlatan,
     testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
+URL: https://github.com/mdlincoln/salty
+BugReports: https://github.com/mdlincoln/salty/issues
