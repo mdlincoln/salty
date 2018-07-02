@@ -62,7 +62,7 @@ shaker <- lapply(list(
 #' @rdname shaker
 #' @export
 replacement_shaker <- lapply(list(
-  ocr_erorrs = replacement_ocr_errors
+  ocr_errors = replacement_ocr_errors
 ), fill_shakers)
 
 #' @describeIn shaker Get the names of available shakers
