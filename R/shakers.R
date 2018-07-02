@@ -1,18 +1,19 @@
-# Constants used to fill up a shaker ----
-
-# replacement constants are replacement dictionaries used by salt_replace, and must be in the form of a named character vector
+# replacement constants ----
+# replacement dictionaries used by salt_replace, and must be in the form of a named character vector
 
 # replacement_ocr_errors is saved as a named vector object in data/dict_ocr_errors.rda
 
-# dicts are unnamed character vectors
+# dict constants ---
+# dicts are unnamed character vectors used by salt_insert or salt_replace
+
 dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
                       "(" , ")", "'", "\"", ";")
 
 # Shaker function factory ----
 
-# Factory that takes either a kv or a dict vector and produces a function that
-# randomly samples a percentage of it (the default), or samples a specified
-# number of values from it.
+# Factory that takes either a replacement or a dict vector and produces a
+# function that randomly samples a percentage of it (the default), or samples a
+# specified number of values from it.
 fill_shakers <- function(v) {
   stopifnot(is.character(v))
   stopifnot(length(v) > 0)
@@ -29,35 +30,46 @@ fill_shakers <- function(v) {
 }
 
 #' Access the original source vector for a given shaker function
+#'
+#' @export
+#' @examples
+#' inspect_shaker(shaker$punctuation)
 inspect_shaker <- function(f) {
   attr(f, which = "source", exact = TRUE)
 }
 
 #' Get a set of values to use in `salt_` functions
 #'
-#' Available shakers:
+#' [shaker] is used with [salt_insert] and [salt_substitute]
 #'
 #' - punctuation
-#' - ocr_errors
+#'
+#' [replacement_shaker] is for [salt_replace], and contains conditional dictionaries
 #'
 #' Call a shaker using the `$` operator.
 #'
+#' @export
 #' @examples
 #' shaker$puncutation(l = 5)
 shaker <- lapply(list(
   punctuation = dict_punctuation,
-  ocr_erorrs = dict_ocr_errors,
   lowercase_letters = letters,
   uppercase_letters = LETTERS,
   mixed_letters = c(letters, LETTERS),
   digits = as.character(0:9)
 ), fill_shakers)
+
+#' @rdname shaker
+#' @export
+replacement_shaker <- lapply(list(
+  ocr_erorrs = replacement_ocr_errors
 ), fill_shakers)
 
-#' Get the names of available shakers
-#'
-#' @describeIn shaker
+#' @describeIn shaker Get the names of available shakers
 #' @export
 available_shakers <- function() {
-  names(salty::shaker)
+  list(
+    shaker = names(salty::shaker),
+    replacement_shaker = names(salty::replacement_shaker)
+  )
 }
