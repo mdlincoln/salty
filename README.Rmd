@@ -27,12 +27,23 @@ When teaching students how toc elan data, it helps to have data that isn't _too_
 - unpredictable punctuation in numeric fields
 - missing values or empty strings
 
+## Installation
+
+You can install salty from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("mdlincoln/salty")
+```
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
-## basic example code
+library(salty)
+sample_names <- charlatan::ch_name(10)
+sample_names
+
+salt_insert(sample_names, 0.5, insertions = shaker$punctuation)
 ```
 
 ## Related work
