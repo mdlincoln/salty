@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 
 # salty
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
 When teaching students how toc elan data, it helps to have data that isn't _too_ clean already.
 **salty** offers functions for "salting" clean data with problems often found in datasets in the wild, such as:
 
