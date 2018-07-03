@@ -1,6 +1,8 @@
 # replacement constants ----
 # replacement dictionaries used by salt_replace, and must be in the form of a named character vector
 
+load("R/sysdata.rda")
+
 # replacement_ocr_errors is saved as a named vector object in data/dict_ocr_errors.rda
 
 # dict constants ---
