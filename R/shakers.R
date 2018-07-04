@@ -20,7 +20,7 @@ fill_shakers <- function(v) {
   stopifnot(is.character(v))
   stopifnot(length(v) > 0)
 
-  f <- function(p = 0.5, l = NULL) {
+  f <- function(l = NULL, p = 0.5) {
     if (is.null(l)) {
       vi <- p_indices(v, p)
       return(v[vi])
@@ -42,17 +42,18 @@ inspect_shaker <- function(f) {
 
 #' Get a set of values to use in `salt_` functions
 #'
-#' [shaker] is used with [salt_insert] and [salt_substitute]
+#' [shaker] contains various character sets to be added to your data using [salt_insert] and [salt_substitute].
+#' [replacement_shaker] is for [salt_replace], and contains pairlists that replace matched patterns in your data.
 #'
-#' - punctuation
+#' @return A sampling function that will be called by [salt_insert], [salt_substitute], or [salt_replace].
 #'
-#' [replacement_shaker] is for [salt_replace], and contains conditional dictionaries
-#'
-#' Call a shaker using the `$` operator.
-#'
+#' @name shaker
+NULL
+
+#' @rdname shaker
 #' @export
 #' @examples
-#' shaker$puncutation(l = 5)
+#' salt_insert(letters, shaker$punctuation)
 shaker <- lapply(list(
   punctuation = dict_punctuation,
   lowercase_letters = letters,
@@ -61,17 +62,20 @@ shaker <- lapply(list(
   digits = as.character(0:9)
 ), fill_shakers)
 
+
 #' @rdname shaker
 #' @export
 replacement_shaker <- lapply(list(
   ocr_errors = replacement_ocr_errors
 ), fill_shakers)
 
-#' @describeIn shaker Get the names of available shakers
+#' @rdname shaker
 #' @export
+#' @examples
+#' available_shakers()
 available_shakers <- function() {
   list(
-    shaker = names(salty::shaker),
-    replacement_shaker = names(salty::replacement_shaker)
+    shaker = names(shaker),
+    replacement_shaker = names(replacement_shaker)
   )
 }
