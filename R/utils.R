@@ -25,6 +25,19 @@ mirror <- function(v) {
   unique(res)
 }
 
+pic_char_indices <- function(x, n) {
+  purrr::map(x, function(y) {
+    nchar_y <- nchar(y)
+
+    if (n > nchar_y) {
+      warning(stringr::str_glue("There are only {nchar_y} characters in x while n is sest to {n}. Returning only {nchar_y} positions"))
+      n <- nchar_y
+    }
+
+    sample.int(nchar_y, size = n, replace = FALSE)
+  })
+}
+
 # Given strings x and y and a pair of insertion positions, add y into x. Y will
 # be inserted in between pos1 and pos2
 single_incorporate <- function(x, y, pos1, pos2) {
