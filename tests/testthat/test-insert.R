@@ -14,6 +14,12 @@ insert_test <- function(selected_shaker, shaker_name) {
     })
   })
 
+  test_that(str_glue("overload insert {shaker_name}"), {
+    walk(battery, function(b) {
+      expect_warning(salt_insert(b, insertions = selected_shaker, p = 0.5, n = 1000))
+    })
+  })
+
   test_that("error on zero-length input", {
     expect_error(salt_insert(zero_length, insertions = selected_shaker))
   })
