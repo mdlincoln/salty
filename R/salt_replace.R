@@ -1,4 +1,4 @@
-sale_replace <- function(x, p = 0.1, replacements) {
+sale_replace <- function(x, replacements, p = 0.1, n = 1) {
 
 }
 

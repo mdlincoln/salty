@@ -7,6 +7,6 @@
 #' @return A character vector the same length as `x`
 #'
 #' @export
-salt_substitute <- function(x, p, substitutions) {
+salt_substitute <- function(x, substitutions, p = 0.2, n = 1) {
 
 }
