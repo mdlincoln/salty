@@ -15,7 +15,6 @@ salt_insert <- function(x, insertions, p = 0.2, n = 1) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
 
-
   # If a character vector is provided for insertions, then turn it into a shaker function
   if (is.character(insertions))
     insertions <- fill_shakers(insertions)
