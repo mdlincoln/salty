@@ -10,5 +10,5 @@ test_that("fill_shakers returns a function", {
 })
 
 test_that("avilable shakers returns shaker names", {
-  expect_equivalent(available_shakers(), names(shaker))
+  expect_equivalent(available_shakers(), list(names(shaker), names(replacement_shaker)))
 })
