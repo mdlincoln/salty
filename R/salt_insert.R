@@ -31,7 +31,7 @@ salt_insert <- function(x, insertions, p = 0.2, n = 1) {
 
   # Generate new values with inserted characters
   replacements <- purrr::map2_chr(selected_x, x_si, function(xc, si) {
-    multi_incorporate(xc, insertions, si)
+    multi_incorporate(xc, insertions, si, occlude = FALSE)
   })
 
   xm[xi] <- replacements
