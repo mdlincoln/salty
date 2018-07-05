@@ -54,7 +54,7 @@ single_incorporate <- function(x, y, pos1, pos2) {
   stringr::str_c(head_segment, y, tail_segment)
 }
 
-multi_incorporate <- function(x, insertions, positions, occlude = FALSE) {
+multi_incorporate <- function(x, insertions, positions, overwrite = FALSE) {
   assertthat::assert_that(all(positions %in% seq_len(nchar(x) + 1)))
 
   sorted_positions <- sort(positions) - 1
@@ -71,7 +71,7 @@ multi_incorporate <- function(x, insertions, positions, occlude = FALSE) {
 
     # Adjust insertion index based on prior adjustment size
     adjusted_si <- sorted_positions[i] + adjustment_size
-    if (occlude) {
+    if (overwrite) {
       end_si <- adjusted_si + 1 + new_chars_size
     } else {
       end_si <- adjusted_si + 1

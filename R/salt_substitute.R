@@ -27,7 +27,7 @@ salt_substitute <- function(x, substitutions, p = 0.2, n = 1) {
 
   # Generate new values with inserted characters
   replacements <- purrr::map2_chr(selected_x, x_si, function(xc, si) {
-    multi_incorporate(xc, substitutions, si, occlude = TRUE)
+    multi_incorporate(xc, substitutions, si, overwrite = TRUE)
   })
 
   xm[xi] <- replacements
