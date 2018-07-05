@@ -6,8 +6,8 @@
 #' @return A character vector the same length as `x`
 #'
 #' @export
-salt_delete <- function(x, p = 0.2, pp = 0.1) {
-
+salt_delete <- function(x, p = 0.2, n = 1) {
+  salt_substitute(x, shaker$blanks, p, n)
 }
 
 salt_na <- function(x, p = 0.2) {
