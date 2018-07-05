@@ -12,7 +12,8 @@ p_indices <- function(x, p) {
   sample.int(l, size = ceiling(l * p))
 }
 
-# Take a named character vector and expand it to include all combos of names and values
+# Take a named character vector and expand it to include all combos of names and
+# values
 mirror <- function(v) {
   stopifnot(!is.null(names(v)))
   stopifnot(is.character(v))
@@ -27,7 +28,7 @@ mirror <- function(v) {
 
 pic_char_indices <- function(x, n) {
   purrr::map(x, function(y) {
-    nchar_y <- nchar(y)
+    nchar_y <- nchar(y) + 1
 
     if (n > nchar_y) {
       warning(stringr::str_glue("There are only {nchar_y} characters in x while n is sest to {n}. Returning only {nchar_y} positions"))
@@ -43,36 +44,48 @@ pic_char_indices <- function(x, n) {
 single_incorporate <- function(x, y, pos1, pos2) {
   assertthat::assert_that(assertthat::is.string(x))
   assertthat::assert_that(assertthat::is.string(y))
-  assertthat::assert_that(assertthat::is.count(pos1))
-  assertthat::assert_that(assertthat::is.count(pos2))
-  assertthat::assert_that(pos2 > pos1)
+  assertthat::assert_that(assertthat::is.number(pos1))
+  assertthat::assert_that(assertthat::is.number(pos2))
+  assertthat::assert_that(pos2 >= pos1)
+
+  message(stringr::str_glue("{pos1} to {pos2}"))
 
   head_segment <- stringr::str_sub(x, start = 1L, end = pos1)
   tail_segment <- stringr::str_sub(x, start = pos2, end = -1L)
+
   stringr::str_c(head_segment, y, tail_segment)
 }
 
-multi_incorporate <- function(x, insertions, positions) {
-  pos <- sort(positions)
-  assertthat::assert_that(all(positions %in% seq_len(nchar(x))))
+multi_incorporate <- function(x, insertions, positions, occlude = FALSE) {
+  assertthat::assert_that(all(positions %in% seq_len(nchar(x) + 1)))
+
+  sorted_positions <- sort(positions) - 1
+
+  message(stringr::str_c(sorted_positions, collapse = " - "))
 
   # After each loop, increase the adjustment size by the number of characters
   # inserted. For each subsequent index from the character indices of the
   # original string, increment position by one to account for those added
   # characters.
   adjustment_size <- 0
-  for (i in seq_along(pos)) {
+  for (i in seq_along(sorted_positions)) {
     # Select new characters to insert
     new_chars <- insertions(1)
+    new_chars_size <- nchar(new_chars)
 
     # Adjust insertion index based on prior adjustment size
-    adjusted_si <- pos[i] + adjustment_size
+    adjusted_si <- sorted_positions[i] + adjustment_size
+    if (occlude) {
+      end_si <- adjusted_si + 1 + new_chars_size
+    } else {
+      end_si <- adjusted_si + 1
+    }
 
     # Add new substring
-    x <- single_incorporate(x, new_chars, adjusted_si, adjusted_si + 1)
+    x <- single_incorporate(x, new_chars, adjusted_si, end_si)
 
     # Increase adjustment size for next round
-    adjustment_size <- nchar(new_chars)
+    adjustment_size <- new_chars_size
   }
   x
 }
