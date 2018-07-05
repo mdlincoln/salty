@@ -48,8 +48,6 @@ single_incorporate <- function(x, y, pos1, pos2) {
   assertthat::assert_that(assertthat::is.number(pos2))
   assertthat::assert_that(pos2 >= pos1)
 
-  message(stringr::str_glue("{pos1} to {pos2}"))
-
   head_segment <- stringr::str_sub(x, start = 1L, end = pos1)
   tail_segment <- stringr::str_sub(x, start = pos2, end = -1L)
 
@@ -60,8 +58,6 @@ multi_incorporate <- function(x, insertions, positions, occlude = FALSE) {
   assertthat::assert_that(all(positions %in% seq_len(nchar(x) + 1)))
 
   sorted_positions <- sort(positions) - 1
-
-  message(stringr::str_c(sorted_positions, collapse = " - "))
 
   # After each loop, increase the adjustment size by the number of characters
   # inserted. For each subsequent index from the character indices of the
