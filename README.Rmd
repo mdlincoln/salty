@@ -1,7 +1,7 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -40,10 +40,16 @@ devtools::install_github("mdlincoln/salty")
 
 ```{r example}
 library(salty)
+set.seed(10)
+
 sample_names <- charlatan::ch_name(10)
 sample_names
 
-salt_insert(sample_names, 0.5, insertions = shaker$punctuation)
+# Use p to specify the percent of values that you would like to salt
+salt_insert(sample_names, p = 0.5, insertions = shaker$punctuation)
+
+# Use n to specify how many character changes you would like to make in salted values
+salt_delete(sample_names, p = 0.5, n = 3)
 ```
 
 ## Related work
