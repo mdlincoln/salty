@@ -10,7 +10,7 @@ salt_character_ocr <- function(x, p = 0.1, ocr_errors = ocr_errors) {
   stopifnot(is.numeric(x))
   xi <- p_indices(xc, p)
 
-  x[xi] <- stringr::str_replace(x, )
+  x[xi] <- stringr::str_replace(x, "")
 }
 
 salt_capitalization <- function(x, p = 0.1) {
