@@ -11,8 +11,6 @@ load("R/sysdata.rda")
 dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
                       "(" , ")", "'", "\"", ";")
 
-dict_blank <- ""
-
 dict_whitespace <- " "
 
 # Shaker function factory ----
@@ -63,7 +61,6 @@ shaker <- lapply(list(
   lowercase_letters = letters,
   uppercase_letters = LETTERS,
   mixed_letters = c(letters, LETTERS),
-  blanks = dict_blank,
   whitespace = dict_whitespace,
   digits = as.character(0:9)
 ), fill_shakers)
