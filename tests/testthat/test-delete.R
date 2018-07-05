@@ -1,4 +1,4 @@
-context("delete")
+context("salt_delete")
 
 test_that("salt_na returns vector of same size", {
   salt_na_res <- map(battery, salt_na)

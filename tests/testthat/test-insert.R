@@ -1,5 +1,5 @@
 insert_test <- function(selected_shaker, shaker_name) {
-  context(str_glue("Salt_insert: {shaker_name}"))
+  context(str_glue("salt_insert: {shaker_name}"))
 
   test_that(str_glue("insert {shaker_name}"), {
     insert_res <- map(battery, function(x) {
