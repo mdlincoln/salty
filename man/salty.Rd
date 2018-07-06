@@ -10,16 +10,16 @@ Insert, delete, replace, and substitute bits of your data with messy values.
 }
 \details{
 \itemize{
-\item \link{str_insert} will insert new characters into some of the values of \code{x}. All
+\item \link{salt_insert} will insert new characters into some of the values of \code{x}. All
 the original characters of the original values will be maintained.
-\item \link{str_substitute} will substitute some characters in some of the values of
+\item \link{salt_substitute} will substitute some characters in some of the values of
 \code{x} in place of some of the original characters.
-\item \link{str_replace} will replace some characters in some of the values of \code{x}.
-Unlike \link{str_substitute}, \link{str_replace} does conditional replacement dependent
+\item \link{salt_replace} will replace some characters in some of the values of \code{x}.
+Unlike \link{salt_substitute}, \link{salt_replace} does conditional replacement dependent
 on the original values of \code{x}, such as changing capitalization or simulating
 OCR errors based on certain character combinations.
-\item \link{str_delete} will remove some characters in the values of \code{x}
-\item \link{str_na} and \link{str_empty} will replace some values of \code{x} with \code{NA} or with
+\item \link{salt_delete} will remove some characters in the values of \code{x}
+\item \link{salt_na} and \link{salt_empty} will replace some values of \code{x} with \code{NA} or with
 empty strings.
 }
 }

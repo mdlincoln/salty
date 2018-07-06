@@ -7,6 +7,12 @@
 #' @return A character vector the same length as `x`
 #'
 #' @export
+#' @examples
+#' x <- c("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+#'        "Nunc finibus tortor a elit eleifend interdum.",
+#'        "Maecenas aliquam augue sit amet ultricies placerat.")
+#'
+#' salt_substitute(x, shaker$digits, p = 0.5, n = 5)
 salt_substitute <- function(x, substitutions, p = 0.2, n = 1) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)

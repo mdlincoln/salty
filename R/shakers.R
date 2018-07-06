@@ -50,7 +50,11 @@ fill_shakers <- function(v) {
   structure(f, source = v)
 }
 
-#' Access the original source vector for a given shaker function
+#' Access the original source vector for a given [shaker] function
+#'
+#' @param f A [shaker] function
+#'
+#' @return A character vector
 #'
 #' @export
 #' @examples

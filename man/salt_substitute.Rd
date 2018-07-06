@@ -22,3 +22,10 @@ A character vector the same length as \code{x}
 \description{
 Substitute certain characters
 }
+\examples{
+x <- c("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+       "Nunc finibus tortor a elit eleifend interdum.",
+       "Maecenas aliquam augue sit amet ultricies placerat.")
+
+salt_substitute(x, shaker$digits, p = 0.5, n = 5)
+}

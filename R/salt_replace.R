@@ -3,13 +3,11 @@
 #' Inserts a selection of characters into some values of x. Pair [salt_replace]
 #' with the named vectors in [replacement_shaker], or supply your own named
 #' vector of replacements. The convenience functions [salt_ocr] and
-#' [salt_capitalizzation] are light wrappers around [salt_replace].
+#' [salt_capitalization] are light wrappers around [salt_replace].
 #'
-#' @param x A vector. This will always be coerced to character during salting.
+#' @inheritParams salt_insert
 #' @param replacements A [replacement_shaker] function, or a named character
 #'   vector of patterns and replacements.
-#' @param p A number between 0 and 1. Percent of values in `x` that should be
-#'   salted.
 #' @param rep_p A number between 0 and 1. Probability that a given match should
 #'   be replaced in one of the selected values.
 #'
@@ -31,7 +29,7 @@ salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
 
   # If a character vector is provided for insertions, then turn it into a shaker function
   if (is.character(replacements)) {
-    assertthat::assert_that(!is.null(names(replacements)))
+    assertthat::assert_that(!is.null(names(replacements)), msg = "salt_repalce requires a named character vector. Consult ?replacement_shaker")
     replacements <- fill_shakers(replacements)
   }
 
@@ -66,7 +64,7 @@ selective_replacement <- function(x, replacements, rep_p) {
 
   # For any given match, only replace conditional to a probability
   repfun <- function(m) {
-    ifelse(runif(1) <= rep_p, stringr::str_replace_all(m, replacements), m)
+    ifelse(stats::runif(1) <= rep_p, stringr::str_replace_all(m, replacements), m)
   }
 
   stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
@@ -80,6 +78,6 @@ salt_ocr <- function(x, p = 0.2, rep_p = 0.1) {
 
 #' @describeIn salt_replace Flip capitalizaiton of letters
 #' @export
-salt_replace_captialization <- function(x, p = 0.1, rep_p = 0.1) {
+salt_capitalization <- function(x, p = 0.1, rep_p = 0.1) {
   salt_replace(x, replacement_shaker$capitalization, p, rep_p)
 }

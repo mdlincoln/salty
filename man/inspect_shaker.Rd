@@ -2,12 +2,18 @@
 % Please edit documentation in R/shakers.R
 \name{inspect_shaker}
 \alias{inspect_shaker}
-\title{Access the original source vector for a given shaker function}
+\title{Access the original source vector for a given \link{shaker} function}
 \usage{
 inspect_shaker(f)
 }
+\arguments{
+\item{f}{A \link{shaker} function}
+}
+\value{
+A character vector
+}
 \description{
-Access the original source vector for a given shaker function
+Access the original source vector for a given \link{shaker} function
 }
 \examples{
 inspect_shaker(shaker$punctuation)

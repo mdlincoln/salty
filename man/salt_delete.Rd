@@ -13,12 +13,21 @@ salt_delete(x, p = 0.2, n = 1)
 
 \item{n}{A postiive integer. Number of times to add new values from \code{insertions} into selected values in \code{x}
 manually supply your own list of characters.}
-
-\item{pp}{Number between 0 and 1. Percent of characters to remove from selected values}
 }
 \value{
 A character vector the same length as \code{x}
 }
 \description{
 Delete some characters from some values
+}
+\examples{
+x <- c("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+       "Nunc finibus tortor a elit eleifend interdum.",
+       "Maecenas aliquam augue sit amet ultricies placerat.")
+
+salt_delete(x, p = 0.5, n = 5)
+
+salt_empty(x, p = 0.5)
+
+salt_na(x, p = 0.5)
 }

@@ -36,20 +36,61 @@ You can install salty from github with:
 devtools::install_github("mdlincoln/salty")
 ```
 
-## Example
+## Usage
 
 ```{r example}
 library(salty)
 set.seed(10)
 
+# We'll use charaltan to create some sample data
+
 sample_names <- charlatan::ch_name(10)
 sample_names
 
-# Use p to specify the percent of values that you would like to salt
-salt_insert(sample_names, p = 0.5, insertions = shaker$punctuation)
+sample_numbers <- charlatan::ch_double(10)
+sample_numbers
+```
 
-# Use n to specify how many character changes you would like to make in salted values
-salt_delete(sample_names, p = 0.5, n = 3)
+salty offers a few different ways of adding salt to your data: inserting, substituting, replacing, and deleting.
+
+`salt_insert` keeps all the characters in the original while adding new ones, while `salt_substitute` overwrites those characters.
+
+```{r}
+# Use p to specify the percent of values that you would like to salt
+salt_insert(sample_names, shaker$punctuation, p = 0.5)
+
+# Use n to specify how many new insertions/substitutions you want to make to selected values
+salt_substitute(sample_names, shaker$punctuation, p = 0.5, n = 3)
+```
+
+Different flavors of salt are available using `shaker`, however you can also supply your own character vector of possible replacements if you like.
+
+```{r}
+salt_insert(sample_names, shaker$mixed_letters, p = 0.5)
+
+salt_insert(sample_numbers, shaker$digits, p = 0.5)
+
+salt_insert(sample_names, c("foo", "bar", "baz"), p = 0.5)
+```
+
+`salt_replace` is a bit more targeted: it works with pairs of patterns and replacements, either contained in `replacement_shaker` or user-specified. Use `rep_p` to set a probability of how many possible replacements should actually get swapped out for any given value.
+
+```{r}
+salt_replace(sample_names, replacement_shaker$ocr_errors, p = 1, rep_p = 1)
+
+salt_replace(sample_names, replacement_shaker$capitalization, p = 0.5, rep_p = 0.2)
+
+salt_replace(sample_numbers, replacement_shaker$decimal_commas, p = 0.5, rep_p = 1)
+```
+
+`salt_delete` will simply drop characters, while `salt_empty` and `salt_na` will replace entire values.
+
+```{r}
+salt_delete(sample_names, p = 0.5, n = 6)
+
+salt_empty(sample_names, p = 0.5)
+
+salt_na(sample_names, p = 0.5)
 ```
 
 ## Related work
