@@ -13,6 +13,10 @@ dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
 
 dict_whitespace <- " "
 
+dict_capitalization <- purrr::set_names(c(letters, LETTERS), c(LETTERS, letters))
+
+dict_decimal_commas <- c("." = ",")
+
 # Shaker function factory ----
 
 # Factory that takes either a replacement or a dict vector and produces a
@@ -26,8 +30,8 @@ fill_shakers <- function(v) {
 
     # If exact indices are supplied, return i positions of the vector
     if (!is.null(i)) {
-      assertthat::assert_that(assertthat::is.count(i))
-      assertthat::assert_that(i <= length(v))
+      assertthat::assert_that(is.integer(i))
+      assertthat::assert_that(all(i) %in% seq_along(v))
       return(v[i])
     }
 
@@ -82,7 +86,9 @@ shaker <- lapply(list(
 #' @rdname shaker
 #' @export
 replacement_shaker <- lapply(list(
-  ocr_errors = replacement_ocr_errors
+  ocr_errors = replacement_ocr_errors,
+  capitalization = dict_capitalization,
+  decimal_commas = dict_decimal_commas
 ), fill_shakers)
 
 #' @rdname shaker
