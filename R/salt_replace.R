@@ -45,7 +45,7 @@ salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
   # For each selected element of x, get potential replacement patterns
   pattern_match_indices <- purrr::map(selected_x, function(x) {
     shaker_patterns <- names(inspect_shaker(replacements))
-    which(stringr::str_detect(x, fixed(shaker_patterns)))
+    which(stringr::str_detect(x, shaker_patterns))
   })
 
   # Generate new values with inserted characters
@@ -64,9 +64,11 @@ selective_replacement <- function(x, replacements, rep_p) {
   assertthat::assert_that(is.proportion(rep_p))
   patterns <- stringr::str_c(names(replacements), collapse = "|")
 
+  # For any given match, only replace conditional to a probability
   repfun <- function(m) {
-    ifelse(runif(1) <= rep_p, replacements[m], m)
+    ifelse(runif(1) <= rep_p, stringr::str_replace_all(m, replacements), m)
   }
+
   stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
 }
 

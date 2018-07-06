@@ -3,6 +3,10 @@
 
 load("R/sysdata.rda")
 
+replacement_capitalization <- purrr::set_names(c(letters, LETTERS), c(LETTERS, letters))
+
+replacement_decimal_commas <- c("\\." = ",")
+
 # replacement_ocr_errors is saved as a named vector object in data/dict_ocr_errors.rda
 
 # dict constants ---
@@ -12,10 +16,6 @@ dict_punctuation <- c(",", ".", "/", "!", "@", "#", "$" , "%", "^" , "&", "*",
                       "(" , ")", "'", "\"", ";")
 
 dict_whitespace <- " "
-
-dict_capitalization <- purrr::set_names(c(letters, LETTERS), c(LETTERS, letters))
-
-dict_decimal_commas <- c("." = ",")
 
 # Shaker function factory ----
 
@@ -87,8 +87,8 @@ shaker <- lapply(list(
 #' @export
 replacement_shaker <- lapply(list(
   ocr_errors = replacement_ocr_errors,
-  capitalization = dict_capitalization,
-  decimal_commas = dict_decimal_commas
+  capitalization = replacement_capitalization,
+  decimal_commas = replacement_decimal_commas
 ), fill_shakers)
 
 #' @rdname shaker
