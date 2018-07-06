@@ -19,15 +19,28 @@ dict_whitespace <- " "
 # function that randomly samples a percentage of it (the default), or samples a
 # specified number of values from it.
 fill_shakers <- function(v) {
-  stopifnot(is.character(v))
-  stopifnot(length(v) > 0)
+  assertthat::assert_that(is.character(v))
+  assertthat::assert_that(length(v) > 0)
 
-  f <- function(l = NULL, p = 0.5) {
-    if (is.null(l)) {
-      vi <- p_indices(v, p)
-      return(v[vi])
+  f <- function(l = NULL, i = NULL, p = 0.5) {
+
+    # If exact indices are supplied, return i positions of the vector
+    if (!is.null(i)) {
+      assertthat::assert_that(assertthat::is.count(i))
+      assertthat::assert_that(i <= length(v))
+      return(v[i])
     }
-    sample(v, size = l, replace = TRUE)
+
+    # If a length is supplied, sample vector l times with replacement
+    if (!is.null(l)) {
+      assertthat::assert_that(assertthat::is.count(l))
+      return(sample(v, size = l, replace = TRUE))
+    }
+
+    # If a proportion is supplied, sample that proportion of the vector
+    assertthat::assert_that(is.proportion(p))
+    vi <- p_indices(v, p)
+    return(v[vi])
   }
 
   structure(f, source = v)
@@ -81,4 +94,8 @@ available_shakers <- function() {
     shaker = names(shaker),
     replacement_shaker = names(replacement_shaker)
   )
+}
+
+is.proportion <- function(x) {
+  x >= 0 & x <= 1
 }
