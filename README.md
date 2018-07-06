@@ -3,6 +3,12 @@
 # salty
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Travis-CI Build
+Status](https://travis-ci.org/mdlincoln/salty.svg?branch=master)](https://travis-ci.org/mdlincoln/salty)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/mdlincoln/salty?branch=master&svg=true)](https://ci.appveyor.com/project/mdlincoln/salty)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/mdlincoln/salty/master.svg)](https://codecov.io/github/mdlincoln/salty?branch=master)
 
 When teaching students how to clean data, it helps to have data that
 isn’t *too* clean already. **salty** offers functions for “salting”
