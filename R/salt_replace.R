@@ -1,15 +1,30 @@
-#' Insert new characters into some values in a vector
+#' Replace certain patterns into some values in a vector
 #'
-#' Inserts a selectino of characters into a percentage of
+#' Inserts a selection of characters into some values of x. Pair [salt_replace]
+#' with the named vectors in [replacement_shaker], or supply your own named
+#' vector of replacements. The convenience functions [salt_ocr] and
+#' [salt_capitalizzation] are light wrappers around [salt_replace].
 #'
 #' @param x A vector. This will always be coerced to character during salting.
-#' @param insertions A [replacement_shaker] function, or a named character vector of patterns and replacements.
-#' @param p A number between 0 and 1. Percent of values in `x` that should be salted.
-#' @param rep_p A number between 0 and 1. Probability that a given match should be replaced.
+#' @param replacements A [replacement_shaker] function, or a named character
+#'   vector of patterns and replacements.
+#' @param p A number between 0 and 1. Percent of values in `x` that should be
+#'   salted.
+#' @param rep_p A number between 0 and 1. Probability that a given match should
+#'   be replaced in one of the selected values.
 #'
 #' @return A character vector the same length as `x`
 #'
 #' @export
+#' @examples
+#'
+#' x <- c("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+#'        "Nunc finibus tortor a elit eleifend interdum.",
+#'        "Maecenas aliquam augue sit amet ultricies placerat.")
+#'
+#' salt_replace(x, replacement_shaker$capitalization, p = 0.5, rep_p = 0.2)
+#'
+#' salt_ocr(x, p = 1, rep_p = 0.5)
 salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
@@ -55,11 +70,14 @@ selective_replacement <- function(x, replacements, rep_p) {
   stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
 }
 
-#' Salt a character vector with common OCR problems
-salt_character_ocr <- function(x, p = 0.2, n = 1) {
-  salt_replace(x, replacement_shaker$ocr_errors, p, n)
+#' @describeIn salt_replace Salt a character vector with common OCR problems
+#' @export
+salt_ocr <- function(x, p = 0.2, rep_p = 0.1) {
+  salt_replace(x, replacement_shaker$ocr_errors, p, rep_p)
 }
 
-salt_capitalization <- function(x, p = 0.1, n) {
-  salt_replace(x, replacement_shaker$capitalization, p, n)
+#' @describeIn salt_replace Flip capitalizaiton of letters
+#' @export
+salt_replace_captialization <- function(x, p = 0.1, rep_p = 0.1) {
+  salt_replace(x, replacement_shaker$capitalization, p, rep_p)
 }
