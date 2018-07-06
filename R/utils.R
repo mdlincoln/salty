@@ -12,20 +12,6 @@ p_indices <- function(x, p) {
   sample.int(l, size = ceiling(l * p))
 }
 
-# Take a named character vector and expand it to include all combos of names and
-# values
-mirror <- function(v) {
-  stopifnot(!is.null(names(v)))
-  stopifnot(is.character(v))
-
-  all_names <- names(v)
-  all_values <- unname(v)
-
-  res <- c(all_names, all_values)
-  names(res) <- c(all_values, all_names)
-  unique(res)
-}
-
 pic_char_indices <- function(x, n) {
   purrr::map(x, function(y) {
     nchar_y <- nchar(y) + 1
