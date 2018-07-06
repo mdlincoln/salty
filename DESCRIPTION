@@ -10,6 +10,7 @@ Description: Take real or simulated data and salt it with errors commonly
     found in the wild, such as pseudo-OCR errors, Unicode problems, numeric 
     fields with nonsensical punctuation, bad dates, etc.
 License: MIT + file LICENSE
+Depends: R (>= 2.10)
 Imports:
     assertthat,
     purrr,
