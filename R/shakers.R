@@ -103,5 +103,6 @@ available_shakers <- function() {
 }
 
 is.proportion <- function(x) {
+  assertthat::assert_that(assertthat::is.number(x))
   x >= 0 & x <= 1
 }
