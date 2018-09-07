@@ -149,13 +149,16 @@ salt_na(sample_names, p = 0.5)
 
 ## Related work
 
-<https://github.com/paulhendricks/anonymizer>
+**salty** should *not* be used for anonymizing data; that’s not its
+purpose. However, it does draw some inspiration from
+[anonymizer](https://github.com/paulhendricks/anonymizer).
 
-<https://github.com/ropensci/charlatan>
+To *create* sample data for salting, take a look at
+[charlatan](https://github.com/ropensci/charlatan).
 
 ## Acknowledgements
 
-The common OCR replacement errors are partially derived from the sed
+The common OCR replacement errors are partially derived from the `sed`
 replacements specified in the [Royal Society Corpus
 project](http://fedora.clarin-d.uni-saarland.de/rsc/access.html):
 Knappen, Jörg, Fischer, Stefan, Kermes, Hannah, Teich, Elke, and
