@@ -39,7 +39,7 @@ You can install salty from github with:
 devtools::install_github("mdlincoln/salty")
 ```
 
-## Usage
+## Basic usage
 
 ```{r example}
 library(salty)
@@ -54,7 +54,41 @@ sample_numbers <- charlatan::ch_double(10)
 sample_numbers
 ```
 
-salty offers a few different ways of adding salt to your data: inserting, substituting, replacing, and deleting.
+salty offers several easy-to-use functions for adding common problems to your data.
+
+```{r}
+# Add in erroeous letters or puncutation
+salt_letters(sample_names)
+salt_punctuation(sample_names)
+
+# Flip capitals
+salt_capitalization(sample_names)
+
+# Introduce OCR errors. You can specify the proportion of values in the vector
+# that should be salted, and the proportion of possible matches within a single
+# value that should be changed.
+salt_ocr(sample_names, p = 1, rep_p = 1)
+```
+
+`salt_delete` will simply drop characters from randomly selected values in a vector, while `salt_empty` and `salt_na` will replace entire values.
+
+```{r}
+salt_delete(sample_names, p = 0.5, n = 6)
+
+salt_empty(sample_names, p = 0.5)
+
+salt_na(sample_names, p = 0.5)
+```
+
+## Advanced usage
+
+For more fine-grained control over the salting process, and for access to a wider range of salting types, you can use the underlying functions provided for: inserting, substituting, replacing.
+
+The set of insertions and replacements are specified via `shakers`, pre-filled character sets and pattern/replacement pairs that the `salt` verbs then call.
+
+```{r}
+available_shakers()
+```
 
 `salt_insert` keeps all the characters in the original while adding new ones, while `salt_substitute` overwrites those characters.
 
@@ -86,15 +120,17 @@ salt_replace(sample_names, replacement_shaker$capitalization, p = 0.5, rep_p = 0
 salt_replace(sample_numbers, replacement_shaker$decimal_commas, p = 0.5, rep_p = 1)
 ```
 
-`salt_delete` will simply drop characters, while `salt_empty` and `salt_na` will replace entire values.
+
+You may also specify your own arbitrary character vector of possible insertions.
 
 ```{r}
-salt_delete(sample_names, p = 0.5, n = 6)
-
-salt_empty(sample_names, p = 0.5)
-
-salt_na(sample_names, p = 0.5)
+salt_insert(sample_names, insertions = c("X", "Z"))
 ```
+
+## Possible future work
+
+- Modifying date strings to introduce subtle errors like invalid dates (e.g. February 30th)
+- Simulting character encoding problems
 
 ## Related work
 
