@@ -52,6 +52,6 @@ salt_capitalization <- function(x, p = 0.1, rep_p = 0.1) {
 
 #' @describeIn salt Flip decimals to commas and vice versa
 #' @export
-salt_capitalization <- function(x, p = 0.1, rep_p = 0.1) {
+salt_decimal_commas <- function(x, p = 0.1, rep_p = 0.1) {
   salt_replace(x, replacement_shaker$decimal_commas, p, rep_p)
 }

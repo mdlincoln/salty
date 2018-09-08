@@ -8,6 +8,7 @@
 \alias{salt_numbers}
 \alias{salt_ocr}
 \alias{salt_capitalization}
+\alias{salt_decimal_commas}
 \title{Salt vectors with common data problems}
 \usage{
 salt_punctuation(x, p = 0.2, n = 1)
@@ -22,7 +23,7 @@ salt_ocr(x, p = 0.2, rep_p = 0.1)
 
 salt_capitalization(x, p = 0.1, rep_p = 0.1)
 
-salt_capitalization(x, p = 0.1, rep_p = 0.1)
+salt_decimal_commas(x, p = 0.1, rep_p = 0.1)
 }
 \arguments{
 \item{x}{A vector. This will always be coerced to character during salting.}
@@ -58,6 +59,6 @@ For a more fine-grained control over how characters are added and whether , see 
 
 \item \code{salt_capitalization}: Flip capitalizaiton of letters
 
-\item \code{salt_capitalization}: Flip decimals to commas and vice versa
+\item \code{salt_decimal_commas}: Flip decimals to commas and vice versa
 }}
 
