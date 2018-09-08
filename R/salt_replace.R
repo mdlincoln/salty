@@ -69,15 +69,3 @@ selective_replacement <- function(x, replacements, rep_p) {
 
   stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
 }
-
-#' @describeIn salt_replace Salt a character vector with common OCR problems
-#' @export
-salt_ocr <- function(x, p = 0.2, rep_p = 0.1) {
-  salt_replace(x, replacement_shaker$ocr_errors, p, rep_p)
-}
-
-#' @describeIn salt_replace Flip capitalizaiton of letters
-#' @export
-salt_capitalization <- function(x, p = 0.1, rep_p = 0.1) {
-  salt_replace(x, replacement_shaker$capitalization, p, rep_p)
-}

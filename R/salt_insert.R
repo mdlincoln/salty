@@ -37,15 +37,3 @@ salt_insert <- function(x, insertions, p = 0.2, n = 1) {
   xm[xi] <- replacements
   xm
 }
-
-salt_insert_puncutation <- function(x, p = 0.2, n = 1) {
-  salt_insert(x, p, n, insertions = shaker$punctuation)
-}
-
-salt_insert_letters <- function(x, p = 0.2, n = 1) {
-  salt_insert(x, p, n, insertions = shaker$mixed_letters)
-}
-
-salt_insert_numbers <- function(x, p = 0.2, n = 1) {
-  salt_insert(x, p, n, insertions = shaker$digits)
-}
