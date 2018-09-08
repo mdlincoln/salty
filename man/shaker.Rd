@@ -3,7 +3,6 @@
 \docType{data}
 \name{shaker}
 \alias{shaker}
-\alias{shaker}
 \alias{replacement_shaker}
 \alias{available_shakers}
 \title{Get a set of values to use in \code{salt_} functions}

@@ -2,15 +2,9 @@
 % Please edit documentation in R/salt_replace.R
 \name{salt_replace}
 \alias{salt_replace}
-\alias{salt_ocr}
-\alias{salt_capitalization}
 \title{Replace certain patterns into some values in a vector}
 \usage{
 salt_replace(x, replacements, p = 0.1, rep_p = 0.5)
-
-salt_ocr(x, p = 0.2, rep_p = 0.1)
-
-salt_capitalization(x, p = 0.1, rep_p = 0.1)
 }
 \arguments{
 \item{x}{A vector. This will always be coerced to character during salting.}
@@ -32,13 +26,6 @@ with the named vectors in \link{replacement_shaker}, or supply your own named
 vector of replacements. The convenience functions \link{salt_ocr} and
 \link{salt_capitalization} are light wrappers around \link{salt_replace}.
 }
-\section{Functions}{
-\itemize{
-\item \code{salt_ocr}: Salt a character vector with common OCR problems
-
-\item \code{salt_capitalization}: Flip capitalizaiton of letters
-}}
-
 \examples{
 
 x <- c("Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

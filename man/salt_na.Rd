@@ -2,7 +2,6 @@
 % Please edit documentation in R/salt_delete.R
 \name{salt_na}
 \alias{salt_na}
-\alias{salt_na}
 \alias{salt_empty}
 \title{Remove entire values from a vector}
 \usage{
