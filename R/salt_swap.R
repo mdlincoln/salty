@@ -1,6 +1,7 @@
 #' Randomly swap out entire values in a vector
 #'
 #' @inheritParams salt_insert
+#' @param swaps Values to be swapped out
 #'
 #' @return A character vector the same length as `x`
 #'
@@ -10,9 +11,9 @@
 #'        "Nunc finibus tortor a elit eleifend interdum.",
 #'        "Maecenas aliquam augue sit amet ultricies placerat.")
 #'
-#' swaps <- c("foo", "bar", "baz")
+#' new_values <- c("foo", "bar", "baz")
 #'
-#' salt_swap(x, swaps, p = 0.5)
+#' salt_swap(x, swaps = new_values, p = 0.5)
 salt_swap <- function(x, insertions, p) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
