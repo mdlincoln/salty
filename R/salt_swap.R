@@ -30,7 +30,7 @@ salt_swap <- function(x, swaps, p = 0.2) {
 
   xi <- p_indices(xm, p)
 
-  xm[xi] <- swaps(l = length(xi))
+  xm[xi] <- swaps(length(xi))
 
   xm
 }

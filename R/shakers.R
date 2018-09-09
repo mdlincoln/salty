@@ -28,19 +28,19 @@ fill_shakers <- function(v) {
   assertthat::assert_that(is.character(v))
   assertthat::assert_that(length(v) > 0)
 
-  f <- function(l = NULL, i = NULL, p = 0.5) {
+  f <- function(n = NULL, i = NULL, p = 0.5) {
+
+    # If a length is supplied, sample vector l times with replacement
+    if (!is.null(n)) {
+      assertthat::assert_that(assertthat::is.count(n))
+      return(sample(v, size = n, replace = TRUE))
+    }
 
     # If exact indices are supplied, return i positions of the vector
     if (!is.null(i)) {
       assertthat::assert_that(is.integer(i))
       assertthat::assert_that(all(i) %in% seq_along(v))
       return(v[i])
-    }
-
-    # If a length is supplied, sample vector l times with replacement
-    if (!is.null(l)) {
-      assertthat::assert_that(assertthat::is.count(l))
-      return(sample(v, size = l, replace = TRUE))
     }
 
     # If a proportion is supplied, sample that proportion of the vector
