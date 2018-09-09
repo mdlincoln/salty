@@ -10,8 +10,8 @@ Insert, delete, replace, and substitute bits of your data with messy values.
 }
 \details{
 Convenient wrappers such as \link{salt_punctuation} are provided for quick access
-to salty's functionality with simple defaults. For more fine-grained control,
-use one of the underlying \code{salt_} functions:
+to this package's functionality with simple defaults. For more fine-grained
+control, use one of the underlying \code{salt_} functions:
 \itemize{
 \item \link{salt_insert} will insert new characters into some of the values of \code{x}. All
 the original characters of the original values will be maintained.
