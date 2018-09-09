@@ -1,5 +1,3 @@
-context("swap")
-
 swap_test <- function(selected_shaker, shaker_name) {
   context(str_glue("salt_swap: {shaker_name}"))
 
