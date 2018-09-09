@@ -1,6 +1,6 @@
 Type: Package
 Package: salty
-Title: Turn Clean Data Into Messy Data
+Title: Turn Clean Data into Messy Data
 Version: 0.1.0
 Authors@R: c(
     person("Matthew Lincoln", email = "matthew.d.lincoln@gmail.com",
