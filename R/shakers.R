@@ -1,5 +1,6 @@
 # replacement constants ----
-# replacement dictionaries used by salt_replace, and must be in the form of a named character vector
+# replacement dictionaries used by salt_replace, and must be in the form of a
+# named character vector
 
 load("R/sysdata.rda")
 
@@ -7,7 +8,8 @@ replacement_capitalization <- purrr::set_names(c(letters, LETTERS), c(LETTERS, l
 
 replacement_decimal_commas <- c("\\." = ",")
 
-# replacement_ocr_errors is saved as a named vector object in data/dict_ocr_errors.rda
+# replacement_ocr_errors is saved as a named vector object in
+# data/dict_ocr_errors.rda
 
 # dict constants ---
 # dicts are unnamed character vectors used by salt_insert or salt_replace
@@ -65,10 +67,13 @@ inspect_shaker <- function(f) {
 
 #' Get a set of values to use in `salt_` functions
 #'
-#' [shaker] contains various character sets to be added to your data using [salt_insert] and [salt_substitute].
-#' [replacement_shaker] is for [salt_replace], and contains pairlists that replace matched patterns in your data.
+#' [shaker] contains various character sets to be added to your data using
+#' [salt_insert] and [salt_substitute]. [replacement_shaker] is for
+#' [salt_replace], and contains pairlists that replace matched patterns in your
+#' data.
 #'
-#' @return A sampling function that will be called by [salt_insert], [salt_substitute], or [salt_replace].
+#' @return A sampling function that will be called by [salt_insert],
+#'   [salt_substitute], or [salt_replace].
 #'
 #' @name shaker
 NULL

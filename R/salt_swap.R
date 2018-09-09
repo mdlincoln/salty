@@ -23,7 +23,8 @@ salt_swap <- function(x, swaps, p = 0.2) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
 
-  # If a character vector is provided for insertions, then turn it into a shaker function
+  # If a character vector is provided for insertions, then turn it into a shaker
+  # function
   if (is.character(swaps))
     swaps <- fill_shakers(swaps)
 

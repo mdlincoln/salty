@@ -9,10 +9,12 @@ salt_delete(x, p = 0.2, n = 1)
 \arguments{
 \item{x}{A vector. This will always be coerced to character during salting.}
 
-\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be salted.}
+\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be
+salted.}
 
-\item{n}{A postiive integer. Number of times to add new values from \code{insertions} into selected values in \code{x}
-manually supply your own list of characters.}
+\item{n}{A positive integer. Number of times to add new values from
+\code{insertions} into selected values in \code{x} manually supply your own list of
+characters.}
 }
 \value{
 A character vector the same length as \code{x}

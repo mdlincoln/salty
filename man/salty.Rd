@@ -9,6 +9,9 @@
 Insert, delete, replace, and substitute bits of your data with messy values.
 }
 \details{
+Convenient wrappers such as \link{salt_punctuation} are provided for quick access
+to salty's functionality with simple defaults. For more fine-grained control,
+use one of the underlying \code{salt_} functions:
 \itemize{
 \item \link{salt_insert} will insert new characters into some of the values of \code{x}. All
 the original characters of the original values will be maintained.
@@ -21,5 +24,6 @@ OCR errors based on certain character combinations.
 \item \link{salt_delete} will remove some characters in the values of \code{x}
 \item \link{salt_na} and \link{salt_empty} will replace some values of \code{x} with \code{NA} or with
 empty strings.
+\item \link{salt_swap} replaces entire values of \code{x} with new strings
 }
 }

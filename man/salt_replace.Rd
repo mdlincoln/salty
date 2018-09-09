@@ -12,7 +12,8 @@ salt_replace(x, replacements, p = 0.1, rep_p = 0.5)
 \item{replacements}{A \link{replacement_shaker} function, or a named character
 vector of patterns and replacements.}
 
-\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be salted.}
+\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be
+salted.}
 
 \item{rep_p}{A number between 0 and 1. Probability that a given match should
 be replaced in one of the selected values.}

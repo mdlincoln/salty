@@ -1,4 +1,5 @@
-# Wrap the core underlying functions within easy-to-use wrappers that expose common use cases.
+# Wrap the core underlying functions within easy-to-use wrappers that expose
+# common use cases.
 
 #' Salt vectors with common data problems
 #'
@@ -6,8 +7,9 @@
 #' including new characters) or [salt_replace] (for salting that requires
 #' replacement of specific characters) with sane defaults.
 #'
-#' For a more fine-grained control over how characters are added and whether , see the documentation for [salt_insert], [salt_substitute],
-#' [salt_replace], and [salt_delete].
+#' For a more fine-grained control over how characters are added and whether ,
+#' see the documentation for [salt_insert], [salt_substitute], [salt_replace],
+#' and [salt_delete].
 #'
 #' @name salt
 #'
@@ -44,7 +46,7 @@ salt_ocr <- function(x, p = 0.2, rep_p = 0.1) {
   salt_replace(x, replacement_shaker$ocr_errors, p, rep_p)
 }
 
-#' @describeIn salt Flip capitalizaiton of letters
+#' @describeIn salt Flip capitalization of letters
 #' @export
 salt_capitalization <- function(x, p = 0.1, rep_p = 0.1) {
   salt_replace(x, replacement_shaker$capitalization, p, rep_p)

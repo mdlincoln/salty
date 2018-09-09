@@ -1,4 +1,4 @@
-#' Substitute certain characters
+#' Substitute certain characters in a vector
 #'
 #' @inheritParams salt_insert
 #'
@@ -17,7 +17,8 @@ salt_substitute <- function(x, substitutions, p = 0.2, n = 1) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
 
-  # If a character vector is provided for insertions, then turn it into a shaker function
+  # If a character vector is provided for insertions, then turn it into a shaker
+  # function
   if (is.character(substitutions))
     substitutions <- fill_shakers(substitutions)
 
@@ -28,7 +29,8 @@ salt_substitute <- function(x, substitutions, p = 0.2, n = 1) {
 
   selected_x <- xm[xi]
 
-  # For each selected element of x, in what string positions should new characters be inserted?
+  # For each selected element of x, in what string positions should new
+  # characters be inserted?
   x_si <- pic_char_indices(selected_x, n)
 
   # Generate new values with inserted characters

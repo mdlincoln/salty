@@ -26,7 +26,8 @@ salt_delete <- function(x, p = 0.2, n = 1) {
 
   selected_x <- xm[xi]
 
-  # For each selected element of x, in what string positions should characters be deleted?
+  # For each selected element of x, in what string positions should characters
+  # be deleted?
   x_si <- pic_char_indices(selected_x, n)
 
   replacements <- purrr::map2_chr(selected_x, x_si, function(s, si) {

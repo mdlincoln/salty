@@ -15,11 +15,14 @@ replacement_shaker
 available_shakers()
 }
 \value{
-A sampling function that will be called by \link{salt_insert}, \link{salt_substitute}, or \link{salt_replace}.
+A sampling function that will be called by \link{salt_insert},
+\link{salt_substitute}, or \link{salt_replace}.
 }
 \description{
-\link{shaker} contains various character sets to be added to your data using \link{salt_insert} and \link{salt_substitute}.
-\link{replacement_shaker} is for \link{salt_replace}, and contains pairlists that replace matched patterns in your data.
+\link{shaker} contains various character sets to be added to your data using
+\link{salt_insert} and \link{salt_substitute}. \link{replacement_shaker} is for
+\link{salt_replace}, and contains pairlists that replace matched patterns in your
+data.
 }
 \examples{
 salt_insert(letters, shaker$punctuation)

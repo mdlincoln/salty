@@ -11,7 +11,8 @@ salt_swap(x, swaps, p = 0.2)
 
 \item{swaps}{Values to be swapped out}
 
-\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be salted.}
+\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be
+salted.}
 }
 \value{
 A character vector the same length as \code{x}

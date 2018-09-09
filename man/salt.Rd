@@ -28,10 +28,12 @@ salt_decimal_commas(x, p = 0.1, rep_p = 0.1)
 \arguments{
 \item{x}{A vector. This will always be coerced to character during salting.}
 
-\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be salted.}
+\item{p}{A number between 0 and 1. Percent of values in \code{x} that should be
+salted.}
 
-\item{n}{A postiive integer. Number of times to add new values from \code{insertions} into selected values in \code{x}
-manually supply your own list of characters.}
+\item{n}{A positive integer. Number of times to add new values from
+\code{insertions} into selected values in \code{x} manually supply your own list of
+characters.}
 
 \item{rep_p}{A number between 0 and 1. Probability that a given match should
 be replaced in one of the selected values.}
@@ -42,8 +44,9 @@ including new characters) or \link{salt_replace} (for salting that requires
 replacement of specific characters) with sane defaults.
 }
 \details{
-For a more fine-grained control over how characters are added and whether , see the documentation for \link{salt_insert}, \link{salt_substitute},
-\link{salt_replace}, and \link{salt_delete}.
+For a more fine-grained control over how characters are added and whether ,
+see the documentation for \link{salt_insert}, \link{salt_substitute}, \link{salt_replace},
+and \link{salt_delete}.
 }
 \section{Functions}{
 \itemize{
@@ -57,7 +60,7 @@ For a more fine-grained control over how characters are added and whether , see 
 
 \item \code{salt_ocr}: Replace some substrings with common OCR problems
 
-\item \code{salt_capitalization}: Flip capitalizaiton of letters
+\item \code{salt_capitalization}: Flip capitalization of letters
 
 \item \code{salt_decimal_commas}: Flip decimals to commas and vice versa
 }}

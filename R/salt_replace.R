@@ -27,9 +27,11 @@ salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
   assertthat::assert_that(length(x) > 0)
   xm <- as.character(x)
 
-  # If a character vector is provided for insertions, then turn it into a shaker function
+  # If a character vector is provided for insertions, then turn it into a shaker
+  # function
   if (is.character(replacements)) {
-    assertthat::assert_that(!is.null(names(replacements)), msg = "salt_repalce requires a named character vector. Consult ?replacement_shaker")
+    assertthat::assert_that(!is.null(names(replacements)),
+                            msg = "salt_repalce requires a named character vector. Consult ?replacement_shaker")
     replacements <- fill_shakers(replacements)
   }
 
@@ -48,7 +50,8 @@ salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
 
   # Generate new values with inserted characters
   replacements <- purrr::map2_chr(selected_x, pattern_match_indices, function(xc, si) {
-    # If the string contains no pattern matches at all, then return the original value early
+    # If the string contains no pattern matches at all, then return the original
+    # value early
     if (length(si) == 0) return(xc)
     selective_replacement(xc, replacements(i = si), rep_p)
   })
@@ -57,7 +60,8 @@ salt_replace <- function(x, replacements, p = 0.1, rep_p = 0.5) {
   xm
 }
 
-# Run str_replace_all given a string, a list of replacements, and a chance of replacement per match
+# Run str_replace_all given a string, a list of replacements, and a chance of
+# replacement per match
 selective_replacement <- function(x, replacements, rep_p) {
   assertthat::assert_that(is.proportion(rep_p))
   patterns <- stringr::str_c(names(replacements), collapse = "|")
