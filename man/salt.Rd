@@ -5,7 +5,7 @@
 \alias{salt_punctuation}
 \alias{salt_letters}
 \alias{salt_whitespace}
-\alias{salt_numbers}
+\alias{salt_digits}
 \alias{salt_ocr}
 \alias{salt_capitalization}
 \alias{salt_decimal_commas}
@@ -17,7 +17,7 @@ salt_letters(x, p = 0.2, n = 1)
 
 salt_whitespace(x, p = 0.2, n = 1)
 
-salt_numbers(x, p = 0.2, n = 1)
+salt_digits(x, p = 0.2, n = 1)
 
 salt_ocr(x, p = 0.2, rep_p = 0.1)
 
@@ -56,7 +56,7 @@ and \link{salt_delete}.
 
 \item \code{salt_whitespace}: Spaces
 
-\item \code{salt_numbers}: 0-9
+\item \code{salt_digits}: 0-9
 
 \item \code{salt_ocr}: Replace some substrings with common OCR problems
 

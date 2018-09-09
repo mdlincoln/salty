@@ -32,11 +32,12 @@ salt_letters <- function(x, p = 0.2, n = 1) {
 #' @describeIn salt Spaces
 #' @export
 salt_whitespace <- function(x, p = 0.2, n = 1) {
-  salt_insert(x, p, n, insertions = shaker$mixed_letters)
+  salt_insert(x, p, n, insertions = shaker$whitespace)
 }
 
 #' @describeIn salt 0-9
-salt_numbers <- function(x, p = 0.2, n = 1) {
+#' @export
+salt_digits <- function(x, p = 0.2, n = 1) {
   salt_insert(x, p, n, insertions = shaker$digits)
 }
 
