@@ -29,3 +29,8 @@ battery <- tibble::lst(
 )
 
 battery_lengths <- purrr::map_int(battery, length)
+
+literal_salts <- c("foo", "bar", "bat")
+
+literal_replacement_salts <- c("a" = "b", "i" = "e")
+

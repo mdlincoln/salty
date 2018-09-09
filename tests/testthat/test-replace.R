@@ -15,3 +15,5 @@ replace_test <- function(selected_shaker, shaker_name) {
 }
 
 imap(replacement_shaker, replace_test)
+
+expect_error(salt_replace(letters, replacements = LETTERS))
