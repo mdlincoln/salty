@@ -23,7 +23,13 @@ clean data with problems often found in datasets in the wild, such as:
 
 ## Installation
 
-You can install salty from github with:
+Install salty from CRAN with:
+
+``` r
+install.packages("salty")
+```
+
+You may install the development version of salty from github with:
 
 ``` r
 # install.packages("devtools")
