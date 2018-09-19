@@ -62,7 +62,7 @@ salty offers several easy-to-use functions for adding common problems to
 your data.
 
 ``` r
-# Add in erroeous letters or puncutation
+# Add in erroneous letters or puncutation
 salt_letters(sample_names)
 #>  [1] "Edwin Kassulke"       "Barroun Fadel"        "Dorla Morissette"    
 #>  [4] "Manuela Mante MD"     "Ferris Kyautzer"      "Djuana Hyatt"        
@@ -222,7 +222,7 @@ salt_insert(sample_names, insertions = c("X", "Z"))
 
   - Modifying date strings to introduce subtle errors like invalid dates
     (e.g. February 30th)
-  - Simulting character encoding problems
+  - Simulating character encoding problems
 
 ## Related work
 
