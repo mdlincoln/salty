@@ -3,6 +3,7 @@
 
 # salty
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Travis-CI Build
 Status](https://travis-ci.org/mdlincoln/salty.svg?branch=master)](https://travis-ci.org/mdlincoln/salty)
