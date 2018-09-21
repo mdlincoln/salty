@@ -45,7 +45,7 @@ devtools::install_github("mdlincoln/salty")
 library(salty)
 set.seed(10)
 
-# We'll use charaltan to create some sample data
+# We'll use charlatan to create some sample data
 
 sample_names <- charlatan::ch_name(10)
 sample_names
@@ -64,7 +64,7 @@ salty offers several easy-to-use functions for adding common problems to
 your data.
 
 ``` r
-# Add in erroneous letters or puncutation
+# Add in erroneous letters or punctuation
 salt_letters(sample_names)
 #>  [1] "Edwin Kassulke"       "Barroun Fadel"        "Dorla Morissette"    
 #>  [4] "Manuela Mante MD"     "Ferris Kyautzer"      "Djuana Hyatt"        
