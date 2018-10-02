@@ -14,7 +14,8 @@ Depends: R (>= 2.10)
 Imports:
     assertthat,
     purrr,
-    stringr
+    stringr,
+    dplyr
 Suggests:
     charlatan,
     testthat (>= 2.0.0),

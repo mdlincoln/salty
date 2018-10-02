@@ -86,6 +86,28 @@ salt_empty(sample_names, p = 0.5)
 salt_na(sample_names, p = 0.5)
 ```
 
+## Modify a data.frame
+
+`ensalt` allows to put some randomness inside columns of a data.frame:
+
+This function takes:
++ A data.frame
++ Column list in `...`
++ A salt function in the `salt` argument. Defaut is `salt_na`.
+
+```{r}
+small_iris <- head(iris, 10)
+ensalt(small_iris, Sepal.Length, Sepal.Width, salt = salt_na)
+```
+
+It has tidyselect terminology, so you can select columns with helpers: 
+
+```{r}
+library(dplyr)
+ensalt(small_iris, contains("Sepal"), salt = salt_na)
+```
+
+
 ## Advanced usage
 
 For more fine-grained control over the salting process, and for access to a wider range of salting types, you can use the underlying functions provided for: inserting, substituting, replacing.
