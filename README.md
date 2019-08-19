@@ -118,6 +118,55 @@ salt_na(sample_names, p = 0.5)
 #> [10] NA
 ```
 
+## Modify a data.frame
+
+`ensalt` allows to put some randomness inside columns of a data.frame:
+
+This function takes: + A data.frame + Column list in `...` + A salt
+function in the `salt` argument. Defaut is `salt_na`.
+
+``` r
+small_iris <- head(iris, 10)
+ensalt(small_iris, Sepal.Length, Sepal.Width, salt = salt_na)
+#>    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+#> 1            NA         3.5          1.4         0.2  setosa
+#> 2           4.9          NA          1.4         0.2  setosa
+#> 3           4.7         3.2          1.3         0.2  setosa
+#> 4           4.6         3.1          1.5         0.2  setosa
+#> 5           5.0         3.6          1.4         0.2  setosa
+#> 6           5.4         3.9          1.7         0.4  setosa
+#> 7           4.6         3.4          1.4         0.3  setosa
+#> 8           5.0         3.4          1.5         0.2  setosa
+#> 9            NA          NA          1.4         0.2  setosa
+#> 10          4.9         3.1          1.5         0.1  setosa
+```
+
+It has tidyselect terminology, so you can select columns with helpers:
+
+``` r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+ensalt(small_iris, contains("Sepal"), salt = salt_na)
+#>    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+#> 1            NA         3.5          1.4         0.2  setosa
+#> 2            NA          NA          1.4         0.2  setosa
+#> 3           4.7         3.2          1.3         0.2  setosa
+#> 4           4.6          NA          1.5         0.2  setosa
+#> 5           5.0         3.6          1.4         0.2  setosa
+#> 6           5.4         3.9          1.7         0.4  setosa
+#> 7           4.6         3.4          1.4         0.3  setosa
+#> 8           5.0         3.4          1.5         0.2  setosa
+#> 9           4.4         2.9          1.4         0.2  setosa
+#> 10          4.9         3.1          1.5         0.1  setosa
+```
+
 ## Advanced usage
 
 For more fine-grained control over the salting process, and for access
@@ -144,17 +193,17 @@ ones, while `salt_substitute` overwrites those characters.
 ``` r
 # Use p to specify the percent of values that you would like to salt
 salt_insert(sample_names, shaker$punctuation, p = 0.5)
-#>  [1] "Ed\"win Kassulke"      "B^arron Fadel"        
-#>  [3] "Dorla Morissette"      "Manuela Mante MD"     
-#>  [5] "Ferris Kautzer"        "Djuana Hyatt"         
-#>  [7] "Dr. Leighton Ryan"     "Ms.( Migdalia Smitham"
-#>  [9] "Ottil.ia Hermann"      "Benj$iman Dach"
+#>  [1] "Edwin Kassu&lke"       "Barron) Fadel"        
+#>  [3] "Dorla M;orissette"     "Manuela Mante MD"     
+#>  [5] "Fer&ris Kautzer"       "Djuana Hyatt"         
+#>  [7] "Dr. Leighton Ryan"     "Ms. Migd*alia Smitham"
+#>  [9] "Ottilia Hermann"       "Benjiman Dach"
 
 # Use n to specify how many new insertions/substitutions you want to make to selected values
 salt_substitute(sample_names, shaker$punctuation, p = 0.5, n = 3)
-#>  [1] "Edwin Kassulke"       "Barron Fadel"         "D/rla Mo.issette."   
-#>  [4] "Manuela Mante MD"     "Ferris %a^t*er"       "Dju,na^Hyatt'"       
-#>  [7] "Dr. Leighto\" *(an"   "Ms. Migdalia Smitham" "O%tili^ Hermann@"    
+#>  [1] "Edwin Kassulke"       "Barron Fadel"         "D'r/a Morisse*te"    
+#>  [4] "Manuela Mante MD"     "Ferris Kautzer"       "Djuan@ Hyatt\"("     
+#>  [7] "Dr' Le%^hton Ryan"    "Ms. M,gda^ia Smitham" "Ottilia H!r^an*"     
 #> [10] "Benjiman Dach"
 ```
 
@@ -164,22 +213,23 @@ like.
 
 ``` r
 salt_insert(sample_names, shaker$mixed_letters, p = 0.5)
-#>  [1] "Edwin Kassulke"       "Barron FLadel"        "Dorla Morissette"    
-#>  [4] "Manuela MantIe MD"    "Ferris Kautzer"       "Djuana Hyatt"        
-#>  [7] "DrU. Leighton Ryan"   "Ms. Migdalia Smitham" "Ottilia Hermannn"    
-#> [10] "Benjiman DachM"
+#>  [1] "Edwin Kassulke"        "Barron Fadel"         
+#>  [3] "Dorla MTorissette"     "Manuela Mante MD"     
+#>  [5] "Ferris Kautfzer"       "Djuana Hyatt"         
+#>  [7] "gDr. Leighton Ryan"    "Ms. Migdalia SSmitham"
+#>  [9] "Ottilia HerBmann"      "Benjiman Dach"
 
 salt_insert(sample_numbers, shaker$digits, p = 0.5)
-#>  [1] "1.328059745613008"    "0.667415054241444"    "1.69175496457426"    
-#>  [4] "0.001261408793618831" "-0.7424613118147763"  "0.6096844205304159"  
-#>  [7] "-20.989606379077806"  "-0.0348483349098612"  "0.847159905848433"   
-#> [10] "1.52549800647527"
+#>  [1] "1.28059745613008"     "0.6674150254241444"   "1.691775496457426"   
+#>  [4] "0.00126140879361831"  "-0.742461311814763"   "0.609684420504159"   
+#>  [7] "-0.9896406379077806"  "-0.03484833490988612" "0.847159905848433"   
+#> [10] "1.525498006472527"
 
 salt_insert(sample_names, c("foo", "bar", "baz"), p = 0.5)
-#>  [1] "Edwin Kassulke"       "Barron Fadel"         "Dorla Morissette"    
-#>  [4] "Manuela Mantebaz MD"  "Ferrfoois Kautzer"    "Djuanabar Hyatt"     
-#>  [7] "Dr. Leighton Ryan"    "Ms. Migdalia Smitham" "Ottbazilia Hermann"  
-#> [10] "Benjiman Dacbarh"
+#>  [1] "Edwin Kassulke"       "Barron Fafoodel"      "Dorla Morissette"    
+#>  [4] "Manuela Mante MD"     "Ferris Kbazautzer"    "Djuanabaz Hyatt"     
+#>  [7] "bazDr. Leighton Ryan" "Ms. Migdalia Smitham" "Ottilia fooHermann"  
+#> [10] "Benjiman Dach"
 ```
 
 `salt_replace` is a bit more targeted: it works with pairs of patterns
@@ -197,16 +247,16 @@ salt_replace(sample_names, replacement_shaker$ocr_errors, p = 1, rep_p = 1)
 #>  [9] "Ottilia Hermann"       "Benjiman Daclh"
 
 salt_replace(sample_names, replacement_shaker$capitalization, p = 0.5, rep_p = 0.2)
-#>  [1] "Edwin KassUlKe"       "bARRon FaDeL"         "Dorla Morissette"    
-#>  [4] "MAnuelA MAnTe MD"     "fErris KautZer"       "Djuana Hyatt"        
-#>  [7] "Dr. Leighton Ryan"    "Ms. Migdalia Smitham" "Ottilia Hermann"     
-#> [10] "Benjiman Dach"
+#>  [1] "Edwin Kassulke"       "BaRrOn fadel"         "Dorla Morissette"    
+#>  [4] "Manuela Mante MD"     "Ferris Kautzer"       "DjuanA hYAtt"        
+#>  [7] "dr. leIghton Ryan"    "Ms. Migdalia Smitham" "OttIlia Hermann"     
+#> [10] "BenJiMaN dach"
 
 salt_replace(sample_numbers, replacement_shaker$decimal_commas, p = 0.5, rep_p = 1)
-#>  [1] "1,28059745613008"    "0.667415054241444"   "1.69175496457426"   
-#>  [4] "0.00126140879361831" "-0,742461311814763"  "0,609684420504159"  
-#>  [7] "-0,989606379077806"  "-0.0348483349098612" "0.847159905848433"  
-#> [10] "1,52549800647527"
+#>  [1] "1,28059745613008"    "0,667415054241444"   "1,69175496457426"   
+#>  [4] "0.00126140879361831" "-0.742461311814763"  "0,609684420504159"  
+#>  [7] "-0.989606379077806"  "-0.0348483349098612" "0,847159905848433"  
+#> [10] "1.52549800647527"
 ```
 
 You may also specify your own arbitrary character vector of possible
@@ -214,10 +264,11 @@ insertions.
 
 ``` r
 salt_insert(sample_names, insertions = c("X", "Z"))
-#>  [1] "Edwin Kassulke"       "Barron FadZel"        "Dorla Morissette"    
-#>  [4] "Manuela Mante MD"     "Ferris Kautzer"       "Djuana HyatXt"       
-#>  [7] "Dr. Leighton Ryan"    "Ms. Migdalia Smitham" "Ottilia Hermann"     
-#> [10] "Benjiman Dach"
+#>  [1] "Edwin Kassulke"        "Barron Fadel"         
+#>  [3] "Dorla MorissettZe"     "Manuela Mante MD"     
+#>  [5] "Ferris Kautzer"        "Djuana Hyatt"         
+#>  [7] "Dr. Leighton Ryan"     "Ms. Migdalia SmithamZ"
+#>  [9] "Ottilia Hermann"       "Benjiman Dach"
 ```
 
 ## Possible future work
