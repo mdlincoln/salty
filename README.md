@@ -8,8 +8,8 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/mdlincoln/salty/master.svg)](https://codecov.io/github/mdlincoln/salty?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/mdlincoln/salty/branch/master/graph/badge.svg)](https://app.codecov.io/gh/mdlincoln/salty?branch=master)
 <!-- badges: end -->
 
 When teaching students how to clean data, it helps to have data that
