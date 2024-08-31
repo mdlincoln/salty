@@ -7,3 +7,4 @@
 0 errors | 0 warnings | 0 notes
 
 * Adds properly-formatted family name to creator in DESCRIPTION
+* This is a resubmission
