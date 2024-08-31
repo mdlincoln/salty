@@ -8,7 +8,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
 [![Downloads, grand
 total](http://cranlogs.r-pkg.org/badges/grand-total/salty)](https://cranlogs.r-pkg.org/)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/mdlincoln/salty/branch/master/graph/badge.svg)](https://app.codecov.io/gh/mdlincoln/salty?branch=master)
@@ -255,4 +255,4 @@ Knappen, Jörg, Fischer, Stefan, Kermes, Hannah, Teich, Elke, and
 Fankhauser, Peter. 2017. “The Making of the Royal Society Corpus.” In
 *Proceedings of the NoDaLiDa 2017 Workshop on Processing Historical
 Language*. Göteborg, Sweden. Linköping University Electronic Press.
-<http://www.ep.liu.se/ecp/article.asp?issue=133&article=003&volume=>.
+<https://ep.liu.se/ecp/article.asp?issue=133&article=003&volume=>.
