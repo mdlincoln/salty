@@ -28,7 +28,6 @@
 #'
 #' - [salt_swap] replaces entire values of `x` with new strings
 #'
-#' @docType package
 #' @name salty
 ## usethis namespace: end
 NULL

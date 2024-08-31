@@ -255,4 +255,4 @@ Knappen, Jörg, Fischer, Stefan, Kermes, Hannah, Teich, Elke, and
 Fankhauser, Peter. 2017. “The Making of the Royal Society Corpus.” In
 *Proceedings of the NoDaLiDa 2017 Workshop on Processing Historical
 Language*. Göteborg, Sweden. Linköping University Electronic Press.
-<https://ep.liu.se/ecp/article.asp?issue=133&article=003&volume=>.
+<https://aclanthology.org/W17-0503.pdf>.
