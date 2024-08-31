@@ -23,6 +23,6 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 7.3.0
 URL: https://github.com/mdlincoln/salty
 BugReports: https://github.com/mdlincoln/salty/issues

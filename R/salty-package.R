@@ -1,3 +1,7 @@
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
 #' salty: Turn Clean Data Into Messy Data
 #'
 #' Insert, delete, replace, and substitute bits of your data with messy values.
@@ -26,4 +30,5 @@
 #'
 #' @docType package
 #' @name salty
+## usethis namespace: end
 NULL
