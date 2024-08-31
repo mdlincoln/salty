@@ -6,6 +6,9 @@
 <!-- badges: start -->
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
+[![Downloads, grand
+total](http://cranlogs.r-pkg.org/badges/grand-total/salty)](https://cranlogs.r-pkg.org/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
@@ -43,7 +46,7 @@ devtools::install_github("mdlincoln/salty")
 library(salty)
 set.seed(10)
 
-# We'll use charaltan to create some sample data
+# We'll use charlatan to create some sample data
 
 sample_names <- charlatan::ch_name(10)
 sample_names
@@ -63,7 +66,7 @@ salty offers several easy-to-use functions for adding common problems to
 your data.
 
 ``` r
-# Add in erroneous letters or puncutation
+# Add in erroneous letters or punctuation
 salt_letters(sample_names)
 #>  [1] "Bradyn Witting"           "Glenn Trantow PhD"       
 #>  [3] "Mariano Tromp-Willms"     "Donte Beatty"            
