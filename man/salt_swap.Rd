@@ -20,7 +20,7 @@ A character vector the same length as \code{x}
 \description{
 Because \code{swaps} can be provided by either a character vector or a function
 that returns a character vector, \code{salt_swap} can be fruitfully used in
-conjunction with the \link[charlatan:charlatan]{charlatan::charlatan} package to intersperse real data with
+conjunction with the \link[charlatan:charlatan-package]{charlatan::charlatan} package to intersperse real data with
 simulated data.
 }
 \examples{

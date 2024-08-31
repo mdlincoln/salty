@@ -2,8 +2,8 @@
 % Please edit documentation in R/salty-package.R
 \docType{package}
 \name{salty}
-\alias{salty}
 \alias{salty-package}
+\alias{salty}
 \title{salty: Turn Clean Data Into Messy Data}
 \description{
 Insert, delete, replace, and substitute bits of your data with messy values.
@@ -26,4 +26,16 @@ OCR errors based on certain character combinations.
 empty strings.
 \item \link{salt_swap} replaces entire values of \code{x} with new strings
 }
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/mdlincoln/salty}
+  \item Report bugs at \url{https://github.com/mdlincoln/salty/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Matthew Lincoln \email{matthew.d.lincoln@gmail.com} (\href{https://orcid.org/0000-0002-4387-3384}{ORCID})
+
 }
