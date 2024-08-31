@@ -50,18 +50,18 @@ and \link{salt_delete}.
 }
 \section{Functions}{
 \itemize{
-\item \code{salt_punctuation}: Punctuation characters
+\item \code{salt_punctuation()}: Punctuation characters
 
-\item \code{salt_letters}: Upper- and lower-case letters
+\item \code{salt_letters()}: Upper- and lower-case letters
 
-\item \code{salt_whitespace}: Spaces
+\item \code{salt_whitespace()}: Spaces
 
-\item \code{salt_digits}: 0-9
+\item \code{salt_digits()}: 0-9
 
-\item \code{salt_ocr}: Replace some substrings with common OCR problems
+\item \code{salt_ocr()}: Replace some substrings with common OCR problems
 
-\item \code{salt_capitalization}: Flip capitalization of letters
+\item \code{salt_capitalization()}: Flip capitalization of letters
 
-\item \code{salt_decimal_commas}: Flip decimals to commas and vice versa
+\item \code{salt_decimal_commas()}: Flip decimals to commas and vice versa
+
 }}
-
