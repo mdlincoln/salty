@@ -71,5 +71,5 @@ selective_replacement <- function(x, replacements, rep_p) {
     ifelse(stats::runif(1) <= rep_p, stringr::str_replace_all(m, replacements), m)
   }
 
-  stringr::str_replace_all(x, pattern = patterns, replacement = repfun)
+  stringr::str_replace_all(x, pattern = patterns, replacement = function(m) sapply(m, repfun))
 }
