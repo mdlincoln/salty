@@ -1,4 +1,4 @@
-# salto 0.1.2
+# salty 0.1.2
 
 * Adjust usage of stringr to be compatible with 1.6.0.
 
