@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/salty)](https://cran.r-project.org/package=salty)
 [![Downloads, grand
-total](http://cranlogs.r-pkg.org/badges/grand-total/salty)](https://cranlogs.r-pkg.org/)
+total](https://cranlogs.r-pkg.org/badges/grand-total/salty)](https://cranlogs.r-pkg.org/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mdlincoln/salty/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
@@ -82,7 +82,7 @@ salt_punctuation(sample_names)
 # Flip capitals
 salt_capitalization(sample_names)
 #>  [1] "Bradyn Witting"           "Glenn Trantow PhD"       
-#>  [3] "MArIano Tromp-WillmS"     "Donte Beatty"            
+#>  [3] "Mariano Tromp-WiLlMs"     "Donte Beatty"            
 #>  [5] "Jax Lueilwitz"            "Esperanza Hane-Reichert" 
 #>  [7] "Mr. Muhammad Zboncak DDS" "Mr. Cordero Effertz PhD" 
 #>  [9] "Jacquline Hand"           "Dr. Newman Dietrich Sr."
@@ -181,7 +181,7 @@ salt_insert(sample_names, shaker$mixed_letters, p = 0.5)
 salt_insert(sample_numbers, shaker$digits, p = 0.5)
 #>  [1] "-1.26519850215309"   "-0.373661555154702"  "-0.687555430387918" 
 #>  [4] "-30.87215882671769"  "-0.101761006224816"  "-0.2537680530102462"
-#>  [7] "-1.853740454457914"  "-0.0779460660753655" "0.96856634052454"   
+#>  [7] "-1.853740454457914"  "-0.0779460660753655" "0.968566340524541"  
 #> [10] "0.1849259599590315"
 
 salt_insert(sample_names, c("foo", "bar", "baz"), p = 0.5)
@@ -206,16 +206,16 @@ salt_replace(sample_names, replacement_shaker$ocr_errors, p = 1, rep_p = 1)
 #>  [9] "Jacqll1i'ne Ha nd"          "Dr. Newvman Dietriclh Sr."
 
 salt_replace(sample_names, replacement_shaker$capitalization, p = 0.5, rep_p = 0.2)
-#>  [1] "BRadyn WiTting"           "Glenn Trantow PhD"       
-#>  [3] "Mariano Tromp-Willms"     "DoNte Beatty"            
-#>  [5] "JAx LuEiLwitZ"            "Esperanza Hane-Reichert" 
+#>  [1] "BradYn WittiNg"           "Glenn Trantow PhD"       
+#>  [3] "Mariano Tromp-Willms"     "Donte BeaTty"            
+#>  [5] "jax LUeIlWiTz"            "Esperanza Hane-Reichert" 
 #>  [7] "Mr. Muhammad Zboncak DDS" "Mr. Cordero Effertz PhD" 
-#>  [9] "JAcquline HAnd"           "Dr. Newman DiETrICh Sr."
+#>  [9] "JaCquline HaNd"           "Dr. NEWmAN DietricH Sr."
 
 salt_replace(sample_numbers, replacement_shaker$decimal_commas, p = 0.5, rep_p = 1)
 #>  [1] "-1.2651980215309"    "-0.373661555154702"  "-0.687555430387918" 
 #>  [4] "-0,87215882671769"   "-0.101761006224816"  "-0,253780530102462" 
-#>  [7] "-1,85374045447914"   "-0.0779460660753655" "0,96856634052454"   
+#>  [7] "-1,85374045447914"   "-0.0779460660753655" "0,968566340524541"  
 #> [10] "0,184925959990315"
 ```
 
@@ -250,7 +250,7 @@ To *create* sample data for salting, take a look at
 
 The common OCR replacement errors are partially derived from the `sed`
 replacements specified in the [Royal Society Corpus
-project](http://fedora.clarin-d.uni-saarland.de/rsc/access.html):
+project](https://fedora.clarin-d.uni-saarland.de/rsc/access.html):
 Knappen, Jörg, Fischer, Stefan, Kermes, Hannah, Teich, Elke, and
 Fankhauser, Peter. 2017. “The Making of the Royal Society Corpus.” In
 *Proceedings of the NoDaLiDa 2017 Workshop on Processing Historical
